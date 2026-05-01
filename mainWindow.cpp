@@ -1,7 +1,7 @@
 #include "mainWindow.h"
 #include "ui_questionaire.h"
+#include <fstream>
 #include <filesystem>
-#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
@@ -41,6 +41,24 @@ MainWindow::MainWindow(QWidget *parent)
             ui->attels->setPixmap(attels);
             ui->attels_2->setPixmap(attels);
         }
+    }
+
+    // Ielādējam jautājumus no JSON faila.
+    std::ifstream f(cels + "jautajumi.json");
+
+    if (f.is_open()) {
+        json dati = json::parse(f);
+
+        if (dati.contains("jautajumi") && dati["jautajumi"].is_array()) {
+            this->jautajumi = dati["jautajumi"].
+            get<std::vector<Jautajums>>();
+        }
+    } else {
+        qDebug() << "Neizdevās atvērt JSON failu: " + cels + "jautajumi.json\n"\
+        "Pārliecinies ka tev ir tiesības viņam piekļūt "\
+        "vai lai fails eksistē ar pareizu JSON sintaksi!";
+
+        exit(1);
     }
 }
 
