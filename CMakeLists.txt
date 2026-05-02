@@ -4,8 +4,7 @@ project(Viktorina VERSION 0.1 LANGUAGES CXX)
 
 list(APPEND CMAKE_PREFIX_PATH "${CMAKE_BINARY_DIR}")
 list(APPEND CMAKE_PREFIX_PATH "${CMAKE_BINARY_DIR}/generators")
-
-set(CMAKE_PREFIX_PATH "/usr/lib/cmake/Qt6")
+list(APPEND CMAKE_PREFIX_PATH "/usr/lib/cmake/Qt6")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)

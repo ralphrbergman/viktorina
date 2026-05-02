@@ -1,8 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <array>
 #include <nlohmann/json.hpp>
 #include <QMainWindow>
+#include <QPushButton>
 
 struct Jautajums {
     std::string jautajums;
@@ -27,9 +29,31 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    int punkti = 0;
+    std::string nosaukums;
+
+    void atnemtPunktu();
+    void atiestatitPunktus();
+    void pievienotPunktu();
+
 private:
     Ui::MainWindow *ui;
+
     std::vector<Jautajums> jautajumi;
+
+    Jautajums* aktualaisJautajums = nullptr;
+    int jautajumaKarta = 0;
+    std::string atbilde;
+    std::array<QPushButton*, 3> pogas;
+
+private slots:
+    void pogasNospiesana();
+    void parskirtJautajumu(int numurs);
+    void saktViktorinu();
+    void beigtViktorinu();
+
+signals:
+    void punktiMainijusies(int jaunaSumma);
 };
 
 #endif
