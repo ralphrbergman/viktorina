@@ -6,14 +6,15 @@ Lai pareizi uzbūvētu lietotni ir nepieciešams CMake projekta pārvaldībai un
 
 Šīs instrukcijas ir domātas priekš Linux (ArchLinux) operētājsistēmas.
 
+* Instalē lietotnes nepieciešamās atkarības, šis solis arī izveidos **build** direktoriju ja tā vēl neeksistē: `conan install . --output-folder=build --build=missing`
+
 Ir divi veidi kā tu vari būvēt lietotni (abiem ir viens un tas pats rezultāts)
 * Automātiskais ceļš:
     1. Pārliecinies ka **build.sh** failam ir palaišanas tiesības: `chmod +x build.sh`
     2. Palaid: `./build.sh`
 * Manuālais ceļš:
-    1. Instalē lietotnes nepieciešamās atkarības, šis solis arī izveidos **build** direktoriju ja tā vēl neeksistē: `conan install . --output-folder=build --build=missing`
-    2. Konfigurē projektu. Pārliecinies ka esi **build** direktorijā: `cd build`, `cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release`
-    3. Uzbūvē lietotni: `cmake --build . -- -j$(nproc)`
+    1. Konfigurē projektu. Pārliecinies ka esi **build** direktorijā: `cd build`, `cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release`
+    2. Uzbūvē lietotni: `cmake --build . -- -j$(nproc)`
 
 ## Lietošana
 Lai viktorīnu varētu lietot ir nepieciešams **jautajumi.json** fails mapē kurā atrodas lietotne.
