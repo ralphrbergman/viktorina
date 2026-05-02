@@ -237,7 +237,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>100</y>
+        <y>125</y>
         <width>500</width>
         <height>300</height>
        </rect>
@@ -262,6 +262,27 @@
       </property>
       <property name="text">
        <string>Atkārtot</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="punkti_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>75</y>
+        <width>800</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tu esi saņēmis 0 punktus!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
      </widget>
     </widget>
